@@ -35,7 +35,17 @@ EXPOSE 80
 CMD vncserver && websockify -D --web=/usr/share/novnc/ --cert=~/novnc.pem 80 localhost:5901 && tail -f /dev/null
   ````
 
-1. Replace the COPY BC /dos/bc31 with your  application (ie. COPY Borland C++/wolf3d /dos/wolf3d). 1. You can also change the default password, or override it with a -e parameter when you run the image.
+1. Replace the COPY BC /dos/bc31 with your  application (ie. COPY Borland C++/wolf3d /dos/wolf3d). 
+1. You can also change the default password, or override it with a -e parameter when you run the image.
+1. In dosbox.bc31.conf file, and mount info in [autoexec]:
+  ````
+[autoexec]
+# Lines in this section will be run at startup.
+# You can put your MOUNT lines here.
+mount c: /home/dos
+mount d: /home/projects
+path z:;c:\bc31\bin
+  ````
 1. Now, with Docker, build the image. I’m assuming you already have Docker installed and are familiar with it to some extent. CD to the directory in a console and run the command…
   ````
   docker build -t dosbox-bc31:v1 .
@@ -45,7 +55,7 @@ CMD vncserver && websockify -D --web=/usr/share/novnc/ --cert=~/novnc.pem 80 loc
    docker run -p 80:80 dosbox-bc31:v1
    ````
    
-1. Open a browser and point it to http://localhost/vnc.html
+1. Open a browser and point it to http://localhost/vnc.html.
 1. You should see a prompt for the password. Type it in, and you should be able to connect to your container with DosBox running. You can now use the command prompt to start your games.
 1. Once your image is built, you can push it to your image repository with docker push, but you’ll need to tag it appropriately.
 
