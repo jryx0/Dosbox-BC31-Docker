@@ -46,11 +46,11 @@ mount c: /home/dos
 mount d: /home/projects
 path z:;c:\bc31\bin
   ````
-1. Now, with Docker, build the image. I’m assuming you already have Docker installed and are familiar with it to some extent. CD to the directory in a console and run the command…
+Now, with Docker, build the image. I’m assuming you already have Docker installed and are familiar with it to some extent. CD to the directory in a console and run the command…
   ````
   docker build -t dosbox-bc31:v1 .
   ````
-1. Run the image.
+Run the image.
   ```` 
    docker run -p 80:80 dosbox-bc31:v1
    ````
