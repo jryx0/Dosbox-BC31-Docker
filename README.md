@@ -38,7 +38,7 @@ CMD vncserver && websockify -D --web=/usr/share/novnc/ --cert=~/novnc.pem 80 loc
 1. Replace the COPY keen /dos/keen with your game/application (ie. COPY bc31/wolf3d /dos/wolf3d). 1. You can also change the default password, or override it with a -e parameter when you run the image.
 1. Now, with Docker, build the image. I’m assuming you already have Docker installed and are familiar with it to some extent. CD to the directory in a console and run the command…
   ````
-  docker build -t mydosbox .
+  docker build -t dosbox-bc31:v1 .
   ````
 1. Run the image.
   ```` 
