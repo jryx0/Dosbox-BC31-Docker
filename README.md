@@ -37,7 +37,7 @@ CMD vncserver && websockify -D --web=/usr/share/novnc/ --cert=~/novnc.pem 80 loc
 
 1. Replace the COPY BC /dos/bc31 with your  application (ie. COPY Borland C++/wolf3d /dos/wolf3d). 
 1. You can also change the default password, or override it with a -e parameter when you run the image.
-1. In dosbox.bc31.conf file, and mount info in [autoexec]:
+1. In dosbox.bc31.conf file, add mount info in [autoexec] section:
   ````
 [autoexec]
 # Lines in this section will be run at startup.
@@ -46,7 +46,7 @@ mount c: /home/dos
 mount d: /home/projects
 path z:;c:\bc31\bin
   ````
-Now, with Docker, build the image. I’m assuming you already have Docker installed and are familiar with it to some extent. CD to the directory in a console and run the command…
+Now, with Docker, build the image. CD to the directory in a console and run the command…
   ````
   docker build -t dosbox-bc31:v1 .
   ````
