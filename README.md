@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
 #copy local bc/BORLANDC to images /home/dos/bc31, dosbox will mount /home/dos as c  
 COPY bc/BORLANDC /home/dos/bc31
-#copy user defined dosbox config
+#copy user defined dosbox config, dosbox will mount /home/projects  as d
 COPY dosbox.bc31.conf  /home/projects/dosbox.bc31.conf
 RUN apt-get update && \
 	echo "tzdata tzdata/Areas select America" > ~/tx.txt && \
