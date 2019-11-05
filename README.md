@@ -1,4 +1,4 @@
-# DOSBOX IN A CONTAINER WITH VNC CLIENT
+# DOSBOX IN A CONTAINER WITH VNC CLIENT AND BORLAND C++ 3.1
 
 1. Create a folder.
 1. Place a copy of your program  in the folder. 
