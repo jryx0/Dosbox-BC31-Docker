@@ -1,7 +1,7 @@
 # DOSBOX IN A CONTAINER WITH VNC CLIENT
 
 1. Create a folder.
-1. Place a copy of your game in the folder. I am using the shareware version of Commander Keen here.
+1. Place a copy of your program  in the folder. 
 1. In that folder, create a file called `dockerfile`, paste in the following code.
 
   ````
@@ -35,14 +35,14 @@ EXPOSE 80
 CMD vncserver && websockify -D --web=/usr/share/novnc/ --cert=~/novnc.pem 80 localhost:5901 && tail -f /dev/null
   ````
 
-1. Replace the COPY keen /dos/keen with your game/application (ie. COPY bc31/wolf3d /dos/wolf3d). 1. You can also change the default password, or override it with a -e parameter when you run the image.
+1. Replace the COPY BC /dos/bc31 with your  application (ie. COPY Borland C++/wolf3d /dos/wolf3d). 1. You can also change the default password, or override it with a -e parameter when you run the image.
 1. Now, with Docker, build the image. I’m assuming you already have Docker installed and are familiar with it to some extent. CD to the directory in a console and run the command…
   ````
   docker build -t dosbox-bc31:v1 .
   ````
 1. Run the image.
   ```` 
-   docker run -p 80:80 dosbox
+   docker run -p 80:80 dosbox-bc31:v1
    ````
    
 1. Open a browser and point it to http://localhost/vnc.html
