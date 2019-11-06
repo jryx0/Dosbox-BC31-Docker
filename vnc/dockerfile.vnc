@@ -12,7 +12,7 @@ RUN apt-get update && \
 	echo "tzdata tzdata/Areas select America" > ~/tx.txt && \
 	echo "tzdata tzdata/Zones/America select New York" >> ~/tx.txt && \
 	debconf-set-selections ~/tx.txt && \
-	#apt-get install -y tightvncserver ratpoison dosbox novnc websockify gnome-terminal && \
+	#apt-get install -y tightvncserver ratpoison dosbox novnc websockify && \
     apt-get install -y tightvncserver ratpoison novnc websockify && \
 	mkdir ~/.vnc/ && \
 	#mkdir ~/.dosbox && \	
@@ -27,4 +27,4 @@ RUN apt-get update && \
 	openssl req -x509 -nodes -newkey rsa:2048 -keyout ~/novnc.pem -out ~/novnc.pem -days 3650 -subj "/C=US/ST=NY/L=NY/O=NY/OU=NY/CN=NY emailAddress=email@example.com"
 EXPOSE 80
 CMD vncserver && websockify -D --web=/usr/share/novnc/ --cert=~/novnc.pem 80 localhost:5901 && tail -f /dev/null
-CMD gnome-terminal
+CMD /bin/sh
