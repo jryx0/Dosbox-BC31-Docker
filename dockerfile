@@ -5,7 +5,7 @@ ENV PASSWORD=123456
 ENV DEBIAN_FRONTEND=noninteractive 
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
 #change sources
-RUN sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/mirrors\.163\.com\/ubuntu\//g' /etc/apt/sources.list
+RUN sed -i "s/ports.ubuntu./mirrors.aliyun./g" /etc/apt/sources.list
 #copy local bc/BORLANDC to images /home/dos/bc31 与下面的mount 对应
 COPY bc/BORLANDC /home/dos/bc31
 #copy user defined dosbox config
