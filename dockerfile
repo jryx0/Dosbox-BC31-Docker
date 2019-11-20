@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 ENV USER=root
 #images and vnc password
 ENV PASSWORD=123456
