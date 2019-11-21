@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+﻿FROM ubuntu:18.04
 ENV USER=root
 #images and vnc password
 ENV PASSWORD=123456
@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
 #change sources
 RUN sed -i "s/ports.ubuntu./mirrors.aliyun./g" /etc/apt/sources.list
-#copy local bc/BORLANDC to images /home/dos/bc31 与下面的mount 对应
+#copy local bc/BORLANDC to images /home/dos/bc31, images will mount this dir to c:
 COPY bc/BORLANDC /home/dos/bc31
 #copy user defined dosbox config
 COPY dosbox.bc31.conf  /home/projects/dosbox.bc31.conf
