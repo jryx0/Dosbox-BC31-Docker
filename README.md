@@ -1,4 +1,4 @@
-# DOSBOX IN A CONTAINER WITH VNC CLIENT AND BORLAND C++ 3.1
+﻿# DOSBOX IN A CONTAINER WITH VNC CLIENT AND BORLAND C++ 3.1
 
 1. Create a folder.
 1. Place a copy of your program  in the folder. 
@@ -11,6 +11,8 @@ ENV USER=root
 ENV PASSWORD=123456
 ENV DEBIAN_FRONTEND=noninteractive 
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
+#change sources
+RUN sed -i "s/ports.ubuntu./mirrors.aliyun./g" /etc/apt/sources.list
 #copy local bc/BORLANDC to images /home/dos/bc31, dosbox will mount /home/dos as c  
 COPY bc/BORLANDC /home/dos/bc31
 #copy user defined dosbox config, dosbox will mount /home/projects  as d

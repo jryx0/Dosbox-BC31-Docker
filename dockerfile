@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
 #change sources
 RUN sed -i "s/ports.ubuntu./mirrors.aliyun./g" /etc/apt/sources.list
-#copy local bc/BORLANDC to images /home/dos/bc31, images will mount this dir to c:
+#copy local bc/BORLANDC to images /home/dos/bc31, dosbox will mount /home/dos as c:
 COPY bc/BORLANDC /home/dos/bc31
 #copy user defined dosbox config
 COPY dosbox.bc31.conf  /home/projects/dosbox.bc31.conf
